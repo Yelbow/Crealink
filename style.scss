@@ -21,6 +21,13 @@ section#merken{
 
   &> div{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
+
+@media only screen and (min-width:600px){
+   section#merken{
+     margin: 0 10vw;
+   }
+ }
+ 
