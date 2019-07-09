@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+body > header, section, nav {
+  padding: 20px;
+  border-bottom: 1px solid grey;
+}
+
+header h1 {
+  margin-bottom: 0.2em;
+}
+
+section img {
+  max-width: 100%;
+}
+
+section#merken {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+}
+section#merken header {
+  grid-column: 1/-1;
+}
+
+/*# sourceMappingURL=style.css.map */
