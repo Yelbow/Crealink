@@ -2,12 +2,17 @@
 
   $gap: 20px;
 
+body{ margin: 0;}
+
 body{
-  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display:grid;
+  grid-template-rows: auto auto auto minmax(500px, 1fr);
 }
 
 body > header, section, nav{
-    padding:20px;
+    // padding:20px;
     border-bottom: 1px solid grey;
 }
 
@@ -20,6 +25,8 @@ section img{
 }
 
 section#merken{
+  display: flex;
+  flex-direction: column;
   
    &>div{ 
       display: grid;
@@ -28,13 +35,22 @@ section#merken{
   }
   
   article{
+    font-size: 9px;
     display: flex;
     flex-direction: column;
-    padding: $gap;
-    border: 1px solid grey;
-    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.16);
+    border-radius: 8px;
+    
+    &> *{
+      padding: $gap;
+    }
+  }
+  .img-holder{
+    padding: 0;
   }
   img{
+    border-radius: 8px 8px 0 0;
+    padding: 0;
     height: 400px;
     object-fit: cover;
   }
@@ -45,6 +61,6 @@ section#merken{
 
 @media only screen and (min-width:600px){
   section#merken > div{
-    margin: 0 10vw;
+    margin: auto 10vw;
   }
 }
