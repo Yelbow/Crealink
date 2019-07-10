@@ -1,12 +1,24 @@
+/****** Reset ******/
+
 *{ box-sizing: border-box }
-
-  $gap: 20px;
-
 body{ margin: 0;}
-  
-body > header, section, nav{
-    // padding:20px;
-    border-bottom: 1px solid grey;
+
+/****** Variables ******/
+
+$gap: 20px;
+$br:  6px;  //border-radius
+
+/****** Topography ******/
+
+h1, h2, h3, h4, h5, h6{
+  margin: 0.6em 0;
+}
+
+/****** General ******/
+
+.the-fold > * {
+    padding: 0 5vw;
+    // border-bottom: 1px solid grey;
 }
 
 header h1{
@@ -20,45 +32,104 @@ section img{
 section#merken{
   display: flex;
   flex-direction: column;
-  
+  height: 100%;
+  background: #bfd8d6;
+
    &>div{ 
+      // flex-grow: 1;
+      margin: $gap 0;
+    
       display: grid;
       grid-gap: $gap;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
   
   article{
-    font-size: 9px;
     display: flex;
     flex-direction: column;
+    
+    // display: grid;
+    // grid-template: 1fr auto / 1fr minmax(34ch, 1fr);
+    
+    background: #fff;
     box-shadow: 0 10px 20px rgba(0,0,0,0.16);
-    border-radius: 8px;
+    border-radius: 6px;
     
     &> *{
-      padding: $gap;
+      padding: 0 $gap;
     }
   }
   .img-holder{
+    // flex-grow: 1;
+    // min-height: 200px;
     padding: 0;
+    img{
+      // width: 100%;
+      // height: 100%;
+    }
   }
   img{
-    border-radius: 8px 8px 0 0;
+    border-radius: 6px 6px 0 0;
     padding: 0;
-    height: 400px;
-    object-fit: cover;
+    // height: 200px;
+    // object-fit: cover;
   }
   .cta{
-    margin-top: auto;
+    margin: auto 0 $gap 0;
+    grid-column: 1 /-1;
+  }
+}
+/****** Responsive ******/
+.the-fold{
+  height: 100vh;
+  display:grid;
+}
+@media only screen and (max-height:660px){
+  section#merken article{  
+    p{  display: none;  }
+  }
+}
+
+@media only screen and (max-height:660px){
+  section#merken{
+    article{
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      div{
+        img{
+          width:100px;
+          height: 100%;
+          object-fit: cover;
+          border-radius: $br 0 0 $br;
+        }
+      }
+      p{
+        grid-column:1/-1;
+        // display: none;
+      }
+
+    }
+  }
+}
+
+@media only screen and (max-height:660px) and (min-width:900px){
+  .the-fold{ 
+    grid-template-columns: min-content 1fr; 
+  }
+  section#merken{
+    grid-column-start: 2;
+    grid-row: 1/-1;
+
+    & > div{
+      article{
+        // flex-direction: row;
+      }
+    }
   }
 }
 
 @media only screen and (min-width:600px){
-  .the-fold{
-    height: 100vh;
-    display:grid;
-    grid-template-rows: auto auto auto minmax(500px, 1fr);
-  }
-  section#merken > div{
-    margin: auto 10vw;
+  .the-fold{ 
+    grid-template-rows: auto auto auto 1fr;
   }
 }
