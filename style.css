@@ -32,31 +32,41 @@ section#merken {
   height: 100%;
   background: #bfd8d6;
 }
-section#merken > div {
+
+div.gallery {
+  flex-grow: 1;
   margin: 20px 0;
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-rows: 1fr auto;
 }
-section#merken article {
+div.gallery article {
   display: flex;
   flex-direction: column;
   background: #fff;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16);
   border-radius: 6px;
 }
-section#merken article > * {
+div.gallery article > * {
+  width: 100%;
+}
+div.gallery article :nth-child(n+2) {
   padding: 0 20px;
 }
-section#merken .img-holder {
-  padding: 0;
+div.gallery article .img-holder {
+  height: 100%;
+  max-height: 25vh;
+  padding: 8px;
+  background: purple;
 }
-section#merken img {
+div.gallery article img {
   border-radius: 6px 6px 0 0;
   padding: 0;
+  object-fit: cover;
 }
-section#merken .cta {
-  margin: auto 0 20px 0;
+div.gallery article .cta {
+  margin: 0 0 20px 0;
   grid-column: 1/-1;
 }
 
@@ -66,15 +76,11 @@ section#merken .cta {
   display: grid;
 }
 
-@media only screen and (max-height: 660px) {
-  section#merken article p {
-    display: none;
-  }
-}
-@media only screen and (max-height: 660px) {
+@media only screen and (max-height: 600px) {
   section#merken article {
     display: grid;
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: 80px 1fr;
   }
   section#merken article div img {
     width: 100px;
@@ -86,19 +92,9 @@ section#merken .cta {
     grid-column: 1/-1;
   }
 }
-@media only screen and (max-height: 660px) and (min-width: 900px) {
-  .the-fold {
-    grid-template-columns: min-content 1fr;
-  }
-
-  section#merken {
-    grid-column-start: 2;
-    grid-row: 1/-1;
-  }
-}
 @media only screen and (min-width: 600px) {
   .the-fold {
-    grid-template-rows: auto auto auto 1fr;
+    grid-template-rows: auto auto auto minmax(0, 1fr);
   }
 }
 
