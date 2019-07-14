@@ -33,6 +33,14 @@ body > section:nth-of-type(even) {
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
 }
 
+header {
+  padding-left: 5vw;
+}
+
+nav {
+  padding-right: 5vw;
+}
+
 body > section {
   padding: 3rem 5vw;
   min-height: 80vh;
