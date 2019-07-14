@@ -3,7 +3,8 @@
   box-sizing: border-box;
 }
 
-body {
+body,
+figure {
   margin: 0;
 }
 
@@ -13,29 +14,39 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0.6em 0;
 }
 
-/****** General ******/
-.the-fold > * {
-  padding: 0 5vw;
-}
-
 header h1 {
   margin-bottom: 0.2em;
 }
 
-section img {
-  max-width: 100%;
+/****** General ******/
+.the-fold > section,
+body > section {
+  padding: 3rem 5vw;
+}
+.the-fold > section:nth-of-type(2n+3),
+body > section:nth-of-type(2n+3) {
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2);
+}
+.the-fold > section:nth-of-type(even),
+body > section:nth-of-type(even) {
+  background: #bfd8d6;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+}
+
+body > section {
+  padding: 3rem 5vw;
+  min-height: 80vh;
 }
 
 section#merken {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  background: #bfd8d6;
+  padding: 3rem 5vw;
 }
 
 div.gallery {
   flex-grow: 1;
-  margin: 20px 0;
+  margin-top: 20px;
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -54,16 +65,10 @@ div.gallery article > * {
 div.gallery article :nth-child(n+2) {
   padding: 0 20px;
 }
-div.gallery article .img-holder {
-  height: 100%;
-  max-height: 25vh;
-  padding: 8px;
-  background: purple;
-}
-div.gallery article img {
+div.gallery article figure.img-holder img {
+  width: 100%;
+  max-width: 100%;
   border-radius: 6px 6px 0 0;
-  padding: 0;
-  object-fit: cover;
 }
 div.gallery article .cta {
   margin: 0 0 20px 0;
@@ -71,29 +76,25 @@ div.gallery article .cta {
 }
 
 /****** Responsive ******/
-.the-fold {
-  height: 100vh;
-  display: grid;
-}
-
-@media only screen and (max-height: 600px) {
-  section#merken article {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    grid-template-rows: 80px 1fr;
-  }
-  section#merken article div img {
-    width: 100px;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 6px 0 0 6px;
-  }
-  section#merken article p {
-    grid-column: 1/-1;
-  }
-}
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 500px) {
   .the-fold {
+    display: grid;
+    grid-template: "header mav" "intro  intro" "merken merken"/1fr 1fr;
+  }
+  .the-fold > header {
+    grid-area: header;
+  }
+  .the-fold > #intro {
+    grid-area: intro;
+  }
+  .the-fold > #merken {
+    grid-area: merken;
+  }
+}
+@media only screen and (min-width: 975px) {
+  .the-fold {
+    display: grid;
+    height: 100vh;
     grid-template-rows: auto auto auto minmax(0, 1fr);
   }
 }
