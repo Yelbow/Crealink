@@ -11,11 +11,68 @@ figure {
 /****** Variables ******/
 /****** Topography ******/
 h1, h2, h3, h4, h5, h6 {
-  margin: 0.6em 0;
+  margin: 0;
 }
 
+h1 {
+  font-size: calc(1.5rem + .8vw);
+}
+
+h2 {
+  font-size: calc(1.3rem + .8vw);
+  color: #32674e;
+}
+
+h3 {
+  font-size: calc(1.17rem + .8vw);
+  margin: 1em 0;
+}
+
+header {
+  font-size: calc(1em + .2vw);
+}
 header h1 {
   margin-bottom: 0.2em;
+}
+
+nav#main-nav a {
+  white-space: nowrap;
+  padding: 16px 8px;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+nav#main-nav a:hover {
+  color: teal;
+}
+
+section a {
+  color: #4c6267;
+}
+section a:hover {
+  color: teal;
+}
+
+p a {
+  color: grey;
+}
+
+section#intro h1 {
+  font-weight: 500;
+  line-height: 1.3em;
+  max-width: 50ch;
+}
+
+p {
+  font-size: calc(1em + .3vw);
+}
+
+button {
+  font-size: calc(1em + .1vw);
+  text-transform: uppercase;
 }
 
 /****** General ******/
@@ -33,12 +90,24 @@ body > section:nth-of-type(even) {
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
 }
 
-header {
-  padding-left: 5vw;
+.the-fold > header {
+  padding: 3rem 5vw 0 5vw;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.the-fold > header img {
+  display: block;
+  margin-bottom: 10px;
 }
 
-nav {
-  padding-right: 5vw;
+nav#main-nav {
+  display: inline;
+  align-self: flex-end;
+  margin-top: 20px;
+}
+nav#main-nav a {
+  padding: 16px 16px 16px 0;
 }
 
 body > section {
@@ -48,17 +117,22 @@ body > section {
 
 section#merken {
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
-  padding: 3rem 5vw;
+}
+section#merken header {
+  margin-bottom: 2em;
+}
+section#merken header h2 {
+  text-align: center;
+  margin: 0;
 }
 
 div.gallery {
   flex-grow: 1;
-  margin-top: 20px;
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  grid-template-rows: 1fr auto;
 }
 div.gallery article {
   display: flex;
@@ -71,39 +145,45 @@ div.gallery article > * {
   width: 100%;
 }
 div.gallery article :nth-child(n+2) {
-  padding: 0 20px;
+  padding: 0 2rem;
 }
 div.gallery article figure.img-holder img {
   width: 100%;
   max-width: 100%;
   border-radius: 6px 6px 0 0;
 }
+div.gallery article p {
+  margin-top: 0;
+  flex-grow: 1;
+}
 div.gallery article .cta {
-  margin: 0 0 20px 0;
+  margin: 0 0 2rem 0;
   grid-column: 1/-1;
+  border: none;
+  border-radius: 2px;
+  width: fit-content;
+  align-self: center;
+  background: #e9c64f;
+  color: white;
+  font-weight: 600;
+  padding: 16px;
+}
+div.gallery article .cta:hover {
+  background-color: #ce8424;
+}
+@media screen and (max-width: 600px) {
+  div.gallery article .cta {
+    width: 100%;
+    margin: 0;
+  }
 }
 
 /****** Responsive ******/
-@media only screen and (min-width: 500px) {
-  .the-fold {
-    display: grid;
-    grid-template: "header mav" "intro  intro" "merken merken"/1fr 1fr;
-  }
-  .the-fold > header {
-    grid-area: header;
-  }
-  .the-fold > #intro {
-    grid-area: intro;
-  }
-  .the-fold > #merken {
-    grid-area: merken;
-  }
-}
 @media only screen and (min-width: 975px) {
   .the-fold {
-    display: grid;
-    height: 100vh;
-    grid-template-rows: auto auto auto minmax(0, 1fr);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
 }
 
