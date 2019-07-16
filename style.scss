@@ -217,7 +217,7 @@ div.gallery{
     @media screen and (max-width:600px) {
       .cta{
         width: 100%;
-        margin:0;
+        margin:$gap 0 0 0;
       }
     }
   }
