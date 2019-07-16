@@ -10,24 +10,41 @@ figure {
 
 /****** Variables ******/
 /****** Topography ******/
-h1, h2, h3, h4, h5, h6 {
+html {
+  font-size: 100%;
+}
+
+h1, h2, h3 {
   margin: 0;
 }
 
 h1 {
-  font-size: calc(1.5rem + .8vw);
+  font-size: calc(1.5rem + .6vw);
 }
 
 h2 {
-  font-size: calc(1.3rem + .8vw);
-  color: #32674e;
+  font-size: calc(1.3rem + .6vw);
 }
 
 h3 {
-  font-size: calc(1.17rem + .8vw);
+  font-size: calc(1.17rem + .6vw);
   margin: 1em 0;
 }
 
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+section, p {
+  font-size: calc(1em + .2vw);
+}
+
+button {
+  font-size: calc(1em + .1vw);
+}
+
+/****** Topography ******/
 header {
   font-size: calc(1em + .2vw);
 }
@@ -38,11 +55,6 @@ header h1 {
 nav#main-nav a {
   white-space: nowrap;
   padding: 16px 8px;
-}
-
-a {
-  color: inherit;
-  text-decoration: inherit;
 }
 
 nav#main-nav a:hover {
@@ -64,15 +76,6 @@ section#intro h1 {
   font-weight: 500;
   line-height: 1.3em;
   max-width: 50ch;
-}
-
-p {
-  font-size: calc(1em + .3vw);
-}
-
-button {
-  font-size: calc(1em + .1vw);
-  text-transform: uppercase;
 }
 
 /****** General ******/
@@ -115,10 +118,17 @@ body > section {
   min-height: 80vh;
 }
 
+section#intro {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
 section#merken {
   display: flex;
-  flex-grow: 1;
   flex-direction: column;
+  justify-content: center;
+  flex: 1;
 }
 section#merken header {
   margin-bottom: 2em;
@@ -129,7 +139,6 @@ section#merken header h2 {
 }
 
 div.gallery {
-  flex-grow: 1;
   display: grid;
   grid-gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -153,20 +162,19 @@ div.gallery article figure.img-holder img {
   border-radius: 6px 6px 0 0;
 }
 div.gallery article p {
-  margin-top: 0;
+  margin: 0;
   flex-grow: 1;
 }
 div.gallery article .cta {
-  margin: 0 0 2rem 0;
+  margin: 2rem;
   grid-column: 1/-1;
   border: none;
-  border-radius: 2px;
+  border-radius: 5px;
   width: fit-content;
   align-self: center;
-  background: #e9c64f;
+  background: #4ea89cde;
   color: white;
-  font-weight: 600;
-  padding: 16px;
+  padding: 16px 24px;
 }
 div.gallery article .cta:hover {
   background-color: #ce8424;

@@ -12,27 +12,46 @@ $shad:  0 10px 20px rgba(0,0,0,0.16); //box-shadow
 
 /****** Topography ******/
 
-h1, h2, h3, h4, h5, h6{
-  // margin: 0.6em 0;
-  // margin-top: 0;
+html{
+  font-size: 100% // 16px
+}
+
+h1, h2, h3{
   margin: 0;
-
 }
 
-h1{
-  font-size: calc(1.5rem + .8vw);
+h1{ // 2
+  font-size: calc(1.5rem + .6vw); // 24px+
 }
 
-h2{
-  font-size: calc(1.3rem + .8vw);
-  // font-weight: 500;
-  color: #32674e;
+h2{ // 1.5
+  font-size: calc(1.3rem + .6vw); // 20.8px+
 }
 
-h3{
-  font-size: calc(1.17rem + .8vw);
+h3{ // 1.17
+  font-size: calc(1.17rem + .6vw); // 18.72px+
   margin: 1em 0;
 }
+
+// @media screen and (min-width:)
+
+a{
+  color: inherit;
+  text-decoration: inherit;
+}
+
+section, p{
+  font-size: calc(1em + .2vw); 
+}
+
+button{
+  font-size: calc(1em + .1vw);
+  // font-weight: 600;
+  // text-transform: uppercase;
+}
+
+/****** Topography ******/
+
 
 header{
   font-size: calc(1em + .2vw);
@@ -49,10 +68,6 @@ nav#main-nav{
   }
 }
 
-a{
-  color: inherit;
-  text-decoration: inherit;
-}
 
 nav#main-nav a:hover{
   color: teal;
@@ -78,13 +93,6 @@ section#intro{
   }
 }
 
-p{
-  font-size: calc(1em + .3vw); 
-}
-button{
-  font-size: calc(1em + .1vw);
-  text-transform: uppercase;
-}
 
 
 /****** General ******/
@@ -131,12 +139,22 @@ body > section{
   min-height: 80vh;
 }
 
-
+section#intro{
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
 
 section#merken{
   display: flex;
-  flex-grow: 1;
   flex-direction: column;
+  justify-content: center;
+
+  flex: 1;
+  // align-items: center;
+
+  // justify-content: center;
+  // height:1;
 
   header{
     margin-bottom: 2em;
@@ -148,7 +166,6 @@ section#merken{
 }
 
 div.gallery{ 
-  flex-grow: 1;
   display: grid;
   grid-gap: $gap;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -177,21 +194,21 @@ div.gallery{
       }
     }
     p{
-      margin-top: 0;
+      margin: 0;
       flex-grow: 1;
     }
     .cta{
-      margin: 0 0 $gap 0;
+      margin: $gap;
       grid-column: 1 /-1;
 
       border: none;
-      border-radius: 2px;
+      border-radius: 5px;
       width: fit-content;
       align-self: center;
-      background: #e9c64f;
+      background: #4ea89cde;
       color: white;
-      font-weight: 600;
-      padding: 16px;
+      padding: 16px 24px;
+  
 
       &:hover{
         background-color: #ce8424;
