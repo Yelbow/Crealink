@@ -14,6 +14,13 @@ $shad:  0 10px 20px rgba(0,0,0,0.16); //box-shadow
 
 html{
   font-size: 100% // 16px
+  // font-family: Futura,Trebuchet MS,Arial,sans-serif;
+  //font-family: "Times New Roman", Times, serif;
+}
+
+body{
+  font-family: Helvetica, sans-serif;
+  color: rgba(0,0,0,0.8)
 }
 
 h1, h2, h3{
@@ -33,7 +40,6 @@ h3{ // 1.17
   margin: 1em 0;
 }
 
-// @media screen and (min-width:)
 
 a{
   color: inherit;
@@ -42,12 +48,23 @@ a{
 
 section, p{
   font-size: calc(1em + .2vw); 
+  line-height: 1.5em
 }
 
 button{
   font-size: calc(1em + .1vw);
   // font-weight: 600;
   // text-transform: uppercase;
+}
+
+@media screen and (min-width:1800px) {
+  h3{
+    font-size:28px;
+  }
+
+  p{
+    font-size:24px;
+  }
 }
 
 /****** Topography ******/
@@ -93,35 +110,43 @@ section#intro{
   }
 }
 
-
-
 /****** General ******/
 
-.the-fold > section,
-body > section {
-    padding: 3rem 5vw;
+.the-fold
 
-    &:nth-of-type(2n+3){
-      box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2);
+  > header{
+    padding: 3rem 5vw 0 5vw;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    img{
+      display: block;
+      margin-bottom: 10px;
     }
-     
-    &:nth-of-type(even){
-      background: #bfd8d6;
-      box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
-    }
-}
-
-.the-fold>header{
-  padding: 3rem 5vw 0 5vw;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-
-  img{
-    display: block;
-    margin-bottom: 10px;
+    
+  @media (min-width:1800px) {
+    padding: 3rem 15vw 0 15vw;
   }
 
+
+}
+
+section{
+  padding: 3rem 5vw;
+
+  &:nth-of-type(2n+3){
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2);
+  }
+    
+  &:nth-of-type(even){
+    background: #42b1be4d;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (min-width:1800px) {
+    padding: 3rem 15vw;
+  }
 }
 
 nav#main-nav{
@@ -143,6 +168,12 @@ section#intro{
   display: flex;
   flex: 1;
   align-items: center;
+  span{
+    color: #28b8ba;
+  }
+  a{
+    color: #28b8ba;
+  }
 }
 
 section#merken{
@@ -205,7 +236,7 @@ div.gallery{
       border-radius: 5px;
       width: fit-content;
       align-self: center;
-      background: #4ea89cde;
+      background:linear-gradient(100deg, rgba(6,190,182,1) 0%, rgba(72,177,191,1) 100%);
       color: white;
       padding: 16px 24px;
   
@@ -288,3 +319,4 @@ div.gallery{
     // grid-template-rows: auto auto auto minmax(0, 1fr);
   }
 }
+
