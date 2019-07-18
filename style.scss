@@ -37,7 +37,6 @@ h2{ // 1.5
 
 h3{ // 1.17
   font-size: calc(1.17rem + .6vw); // 18.72px+
-  margin: 1em 0;
 }
 
 
@@ -47,7 +46,8 @@ a{
 }
 
 section, p{
-  font-size: calc(1em + .2vw); 
+  // font-size: calc(1em + .2vw); 
+  font-size: 18px;
   line-height: 1.5em
 }
 
@@ -160,7 +160,7 @@ nav#main-nav{
 }
 
 body > section{
-  padding: 3rem 5vw;
+  padding: 4rem 5vw 3rem;
   min-height: 80vh;
 }
 
@@ -210,49 +210,85 @@ div.gallery{
     box-shadow: $shad;
     border-radius: $br;
 
-    & > *{
-      width: 100%;
-    }
-     
-    & :nth-child(n+2) {
-      padding: 0 $gap;
-    }
-    figure.img-holder{
+    .img-holder{
       img{
         width: 100%;
         max-width: 100%;
         border-radius: $br $br 0 0;
       }
     }
+    .txt-cont{
+      padding: 1rem;
+
+      @media (min-width: 900px){
+        padding: 1.5rem;
+      }
+    }
     p{
-      margin: 0;
+
+      line-height: 1.4em;
+      margin: 1.5rem 0;
       flex-grow: 1;
     }
-    .cta{
-      margin: $gap;
-      grid-column: 1 /-1;
+    // .cta{
+    //   display: none;
+    //   margin: $gap;
+    //   grid-column: 1 /-1;
 
-      border: none;
-      border-radius: 5px;
-      width: fit-content;
-      align-self: center;
-      background:linear-gradient(100deg, rgba(6,190,182,1) 0%, rgba(72,177,191,1) 100%);
-      color: white;
-      padding: 16px 24px;
+    //   border: none;
+    //   border-radius: 5px;
+    //   width: fit-content;
+    //   align-self: center;
+    //   background:linear-gradient(100deg, rgba(6,190,182,1) 0%, rgba(72,177,191,1) 100%);
+    //   color: white;
+    //   padding: 16px 24px;
   
 
-      &:hover{
-        background-color: #ce8424;
-      }
-    }
-    @media screen and (max-width:600px) {
-      .cta{
-        width: 100%;
-        margin:$gap 0 0 0;
-      }
-    }
+    //   &:hover{
+    //     background-color: #ce8424;
+    //   }
+    // }
+    // @media screen and (max-width:600px) {
+    //   .cta{
+    //     width: 100%;
+    //     margin:$gap 0 0 0;
+    //   }
+    // }
   }
 }
+body >section{
+  display: grid;
+  grid-gap: 2rem;
+  justify-content: center;
+
+  @media( min-width: 1100px){
+    grid-template-columns: 1fr 1fr minmax(0, 1fr);
+  }
+
+  article.post{
+    max-width: 66ch;
+
+    @media( min-width: 1100px){
+      grid-column: span 2;
+      justify-self: end;
+  
+    }
+    .img-holder{
+      margin-top: $gap;
+    }   
+    img{
+      width: 100%;
+      max-width: 100%;
+      border-radius: 6px;
+      box-shadow: $shad;
+    }  
+    p{
+      font-size: 21px;
+    }
+  
+  }
+}
+
 
 /****** Responsive ******/
 
